@@ -109,7 +109,14 @@ function App() {
                     mr="xl"
                   />
                 </MediaQuery>
-                <Button onClick={() => setRtl((c) => !c)}>
+                <Button
+                  onClick={() =>
+                    setRtl((rtl) => {
+                      document.dir = !rtl ? "rtl" : "ltr";
+                      return !rtl;
+                    })
+                  }
+                >
                   {rtl ? "rtl" : "lrt"}
                 </Button>
               </Group>
@@ -120,12 +127,20 @@ function App() {
           <Text> {t("welcome")}</Text>
           <Group>
             <ThemeButton />
-            <Button onClick={() => setRtl((c) => !c)}>
+            <Button
+              onClick={() =>
+                setRtl((rtl) => {
+                  document.dir = !rtl ? "rtl" : "ltr";
+                  return !rtl;
+                })
+              }
+            >
               {rtl ? "rtl" : "lrt"}
             </Button>
             <Button
               onClick={() => {
                 changeLanguage("ar");
+                document.dir = "rtl";
               }}
             >
               ar
@@ -133,6 +148,7 @@ function App() {
             <Button
               onClick={() => {
                 changeLanguage("en");
+                document.dir = "ltr";
               }}
             >
               en
