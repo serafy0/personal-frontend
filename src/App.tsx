@@ -71,90 +71,90 @@ function App() {
               { key: "mantine" }
         }
       >
-        <AppShell
-          styles={(theme) => ({
-            main: {
-              backgroundColor:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[8]
-                  : theme.colors.gray[0],
-            },
-          })}
-          navbarOffsetBreakpoint="sm"
-          asideOffsetBreakpoint="sm"
-          fixed
-          navbar={
-            <Navbar
-              p="md"
-              hiddenBreakpoint="sm"
-              hidden={!opened}
-              width={{ sm: 200, lg: 300 }}
-            >
-              <Text>Application navbar</Text>
-            </Navbar>
-          }
-          footer={
-            <Footer height={60} p="md">
-              <Text>Application footer</Text>
-            </Footer>
-          }
-          header={
-            <Header height={70} p="md">
-              <Group>
-                <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-                  <Burger
-                    opened={opened}
-                    onClick={() => setOpened((o) => !o)}
-                    size="sm"
-                    mr="xl"
-                  />
-                </MediaQuery>
-                <Button
-                  onClick={() =>
-                    setRtl((rtl) => {
-                      document.dir = !rtl ? "rtl" : "ltr";
-                      return !rtl;
-                    })
-                  }
-                >
-                  {rtl ? "rtl" : "lrt"}
-                </Button>
-              </Group>
-            </Header>
-          }
-        >
-          <Text>Resize app to see responsive navbar in action</Text>
-          <Text> {t("welcome")}</Text>
-          <Group>
-            <ThemeButton />
-            <Button
-              onClick={() =>
-                setRtl((rtl) => {
-                  document.dir = !rtl ? "rtl" : "ltr";
-                  return !rtl;
-                })
-              }
-            >
-              {rtl ? "rtl" : "lrt"}
-            </Button>
-            <Button
-              onClick={() => {
-                changeLanguage("ar");
-                document.dir = "rtl";
-              }}
-            >
-              ar
-            </Button>
-            <Button
-              onClick={() => {
-                changeLanguage("en");
-                document.dir = "ltr";
-              }}
-            >
-              en
-            </Button>
-          </Group>
-        </AppShell>
+        <div dir={rtl ? "rtl" : "ltr"}>
+          <AppShell
+            styles={(theme) => ({
+              main: {
+                backgroundColor:
+                  theme.colorScheme === "dark"
+                    ? theme.colors.dark[8]
+                    : theme.colors.gray[0],
+              },
+            })}
+            navbarOffsetBreakpoint="sm"
+            asideOffsetBreakpoint="sm"
+            fixed
+            navbar={
+              <Navbar
+                p="md"
+                hiddenBreakpoint="sm"
+                hidden={!opened}
+                width={{ sm: 200, lg: 300 }}
+              >
+                <Text>Application navbar</Text>
+              </Navbar>
+            }
+            footer={
+              <Footer height={60} p="md">
+                <Text>Application footer</Text>
+              </Footer>
+            }
+            header={
+              <Header height={70} p="md">
+                <Group>
+                  <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+                    <Burger
+                      opened={opened}
+                      onClick={() => setOpened((o) => !o)}
+                      size="sm"
+                      mr="xl"
+                    />
+                  </MediaQuery>
+                  <Button
+                    onClick={() =>
+                      setRtl((rtl) => {
+                        return !rtl;
+                      })
+                    }
+                  >
+                    {rtl ? "rtl" : "lrt"}
+                  </Button>
+                </Group>
+              </Header>
+            }
+          >
+            <Text>Resize app to see responsive navbar in action</Text>
+            <Text> {t("welcome")}</Text>
+            <Group>
+              <ThemeButton />
+              <Button
+                onClick={() =>
+                  setRtl((rtl) => {
+                    return !rtl;
+                  })
+                }
+              >
+                {rtl ? "rtl" : "lrt"}
+              </Button>
+              <Button
+                onClick={() => {
+                  changeLanguage("ar");
+                  setRtl((rtl) => (rtl ? rtl : !rtl));
+                }}
+              >
+                ar
+              </Button>
+              <Button
+                onClick={() => {
+                  changeLanguage("en");
+                  setRtl((rtl) => (rtl ? !rtl : rtl));
+                }}
+              >
+                en
+              </Button>
+            </Group>
+          </AppShell>
+        </div>
       </MantineProvider>
     </ColorSchemeProvider>
   );
