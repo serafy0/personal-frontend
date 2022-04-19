@@ -12,12 +12,15 @@ import {
   Burger,
   Button,
   Group,
+  Global,
+  Title,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import rtlPlugin from "stylis-plugin-rtl";
 import ThemeButton from "./components/ThemeButton";
 import * as React from "react";
+import LanguageMenu from "./components/LanguageMenu";
 
 function App() {
   // hook will return either 'dark' or 'light' on client
@@ -57,12 +60,24 @@ function App() {
             root: {
               color:
                 theme.colorScheme === "dark"
-                  ? theme.colors.orange
+                  ? theme.colors.green[4]
                   : theme.colors.blue,
             },
           }),
         }}
-        theme={{ colorScheme, dir: rtl ? "rtl" : "ltr" }}
+        theme={{
+          colorScheme,
+          dir: rtl ? "rtl" : "ltr",
+          primaryColor: colorScheme === "dark" ? "grape" : "cyan",
+
+          fontFamily: rtl
+            ? "'Cairo', sans-serif"
+            : "'Goudy Bookletter 1911', serif",
+
+          headings: {
+            fontFamily: rtl ? "'Amiri', serif" : "'Merriweather', serif",
+          },
+        }}
         emotionOptions={
           rtl
             ? // rtl cache
@@ -71,6 +86,18 @@ function App() {
               { key: "mantine" }
         }
       >
+        <Global
+          styles={(theme) => ({
+            body: {
+              color:
+                theme.colorScheme === "dark"
+                  ? theme.colors.blue
+                  : theme.colors.orange,
+              fontSize: 15,
+            },
+          })}
+        />
+
         <div dir={rtl ? "rtl" : "ltr"}>
           <AppShell
             styles={(theme) => ({
@@ -117,7 +144,7 @@ function App() {
                       })
                     }
                   >
-                    {rtl ? "rtl" : "lrt"}
+                    <Text>{rtl ? "rtl" : "lrt"}</Text>
                   </Button>
                 </Group>
               </Header>
@@ -153,6 +180,8 @@ function App() {
                 en
               </Button>
             </Group>
+            <Title>{t("helloUser")}</Title>
+            <Title order={1}>{t("helloUser")}</Title>
           </AppShell>
         </div>
       </MantineProvider>
