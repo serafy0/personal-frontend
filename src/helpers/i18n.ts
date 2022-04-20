@@ -10,6 +10,7 @@ i18n
   .use(initReactI18next)
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
+
   .init({
     debug: true,
     fallbackLng: "en",
@@ -21,12 +22,30 @@ i18n
         translation: {
           // here we will place our translations...
           welcome: "hello and welcome",
+          helloUser: "Hello, Mohamed",
+          English: "English",
+          Arabic: "Arabic",
+          French: "French",
         },
       },
       ar: {
         translation: {
           // here we will place our translations...
           welcome: "اهلا و سهلا",
+          helloUser: "اهلا يا محمد",
+          English: "الانجليزيه",
+          Arabic: "العربيه",
+          French: "الفرنسيه",
+        },
+      },
+      fr: {
+        translation: {
+          // here we will place our translations...
+          welcome: "salut",
+          helloUser: "salut Moahmed",
+          English: "Anglais",
+          Arabic: "arabe",
+          French: "Français",
         },
       },
     },
