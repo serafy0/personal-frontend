@@ -14,8 +14,9 @@ import {
   Group,
   Global,
   Title,
+  SegmentedControl,
 } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
+import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import rtlPlugin from "stylis-plugin-rtl";
 import ThemeButton from "./components/ThemeButton";
@@ -137,51 +138,32 @@ function App() {
                       mr="xl"
                     />
                   </MediaQuery>
-                  <Button
-                    onClick={() =>
-                      setRtl((rtl) => {
-                        return !rtl;
-                      })
-                    }
-                  >
-                    <Text>{rtl ? "rtl" : "lrt"}</Text>
-                  </Button>
+                  <ThemeButton />
+
+                  <SegmentedControl
+                    data={[
+                      { label: `${t("English")}`, value: "en" },
+                      { label: `${t("Arabic")}`, value: "ar" },
+                      { label: `${t("French")}`, value: "fr" },
+                    ]}
+                    onChange={(lang) => {
+                      changeLanguage(lang);
+
+                      if (lang === "ar") {
+                        setRtl(true);
+                      } else {
+                        setRtl(false);
+                      }
+                    }}
+                  />
                 </Group>
               </Header>
             }
           >
-            <Text>Resize app to see responsive navbar in action</Text>
             <Text> {t("welcome")}</Text>
-            <Group>
-              <ThemeButton />
-              <Button
-                onClick={() =>
-                  setRtl((rtl) => {
-                    return !rtl;
-                  })
-                }
-              >
-                {rtl ? "rtl" : "lrt"}
-              </Button>
-              <Button
-                onClick={() => {
-                  changeLanguage("ar");
-                  setRtl((rtl) => (rtl ? rtl : !rtl));
-                }}
-              >
-                ar
-              </Button>
-              <Button
-                onClick={() => {
-                  changeLanguage("en");
-                  setRtl((rtl) => (rtl ? !rtl : rtl));
-                }}
-              >
-                en
-              </Button>
-            </Group>
-            <Title>{t("helloUser")}</Title>
-            <Title order={1}>{t("helloUser")}</Title>
+            <Title sx={{ fontSize: 120 }} order={1}>
+              {t("helloUser")}
+            </Title>
           </AppShell>
         </div>
       </MantineProvider>
