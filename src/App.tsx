@@ -15,6 +15,10 @@ import {
   Global,
   Title,
   SegmentedControl,
+  Container,
+  Box,
+  SimpleGrid,
+  Center,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -22,7 +26,8 @@ import rtlPlugin from "stylis-plugin-rtl";
 import ThemeButton from "./components/ThemeButton";
 import * as React from "react";
 import LanguageMenu from "./components/LanguageMenu";
-
+import Flicking, { MoveEvent, WillChangeEvent } from "@egjs/react-flicking";
+// Import Swiper styles
 function App() {
   // hook will return either 'dark' or 'light' on client
   // and always 'light' during ssr as window.matchMedia is not available
@@ -36,12 +41,17 @@ function App() {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   const [rtl, setRtl] = useState(false);
 
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [opened, setOpened] = useState(false);
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
-
+  React.useEffect(() => {
+    if (i18n.language === "ar") {
+      setRtl(true);
+    }
+  }, [i18n, setRtl]);
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
@@ -115,7 +125,7 @@ function App() {
             navbar={
               <Navbar
                 p="md"
-                hiddenBreakpoint="sm"
+                hiddenBreakpoint="xl"
                 hidden={!opened}
                 width={{ sm: 200, lg: 300 }}
               >
@@ -129,6 +139,7 @@ function App() {
             }
             header={
               <Header height={70} p="md">
+                <Box sx={{ display: "flex" }}></Box>
                 <Group>
                   <MediaQuery largerThan="sm" styles={{ display: "none" }}>
                     <Burger
@@ -141,11 +152,24 @@ function App() {
                   <ThemeButton />
 
                   <SegmentedControl
+                    color={colorScheme === "dark" ? "grape" : "blue"}
+                    value={i18n.language}
                     data={[
                       { label: `${t("English")}`, value: "en" },
                       { label: `${t("Arabic")}`, value: "ar" },
                       { label: `${t("French")}`, value: "fr" },
                     ]}
+                    sx={{
+                      backgroundColor:
+                        colorScheme === "dark" ? "yellow" : "red",
+                      color: colorScheme === "dark" ? "black" : "white",
+                    }}
+                    styles={{
+                      label: {
+                        color: colorScheme === "dark" ? "black" : "white",
+                      },
+                    }}
+                    radius="sm"
                     onChange={(lang) => {
                       changeLanguage(lang);
 
@@ -160,10 +184,20 @@ function App() {
               </Header>
             }
           >
-            <Text> {t("welcome")}</Text>
-            <Title sx={{ fontSize: 120 }} order={1}>
-              {t("helloUser")}
-            </Title>
+            <Box sx={{ paddingTop: 20, paddingButton: 60 }}>
+              <Container size={1100}>
+                <Center>
+                  <Title sx={{ fontSize: isMobile ? 80 : 120 }} order={1}>
+                    {t("helloUser")}
+                  </Title>
+                </Center>
+                <Center>
+                  <Title sx={{ fontSize: isMobile ? 80 : 120 }} order={1}>
+                    {t("helloUser")}
+                  </Title>
+                </Center>
+              </Container>
+            </Box>
           </AppShell>
         </div>
       </MantineProvider>
