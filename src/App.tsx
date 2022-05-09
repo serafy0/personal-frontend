@@ -5,12 +5,8 @@ import {
   ColorScheme,
   Text,
   AppShell,
-  Navbar,
   Header,
   Footer,
-  MediaQuery,
-  Burger,
-  Button,
   Group,
   Global,
   Title,
@@ -20,8 +16,9 @@ import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import rtlPlugin from "stylis-plugin-rtl";
 import ThemeButton from "./components/ThemeButton";
-import * as React from "react";
-import LanguageMenu from "./components/LanguageMenu";
+import { useEffect } from "react";
+
+import Projects from "./components/Project/Projects";
 
 function App() {
   // hook will return either 'dark' or 'light' on client
@@ -36,11 +33,16 @@ function App() {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   const [rtl, setRtl] = useState(false);
 
-  const [opened, setOpened] = useState(false);
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
+
+  useEffect(() => {
+    if (i18n.language === "ar") {
+      setRtl(true);
+    }
+  }, [i18n, setRtl]);
 
   return (
     <ColorSchemeProvider
@@ -112,16 +114,6 @@ function App() {
             navbarOffsetBreakpoint="sm"
             asideOffsetBreakpoint="sm"
             fixed
-            navbar={
-              <Navbar
-                p="md"
-                hiddenBreakpoint="sm"
-                hidden={!opened}
-                width={{ sm: 200, lg: 300 }}
-              >
-                <Text>Application navbar</Text>
-              </Navbar>
-            }
             footer={
               <Footer height={60} p="md">
                 <Text>Application footer</Text>
@@ -130,17 +122,10 @@ function App() {
             header={
               <Header height={70} p="md">
                 <Group>
-                  <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-                    <Burger
-                      opened={opened}
-                      onClick={() => setOpened((o) => !o)}
-                      size="sm"
-                      mr="xl"
-                    />
-                  </MediaQuery>
                   <ThemeButton />
 
                   <SegmentedControl
+                    value={i18n.language}
                     data={[
                       { label: `${t("English")}`, value: "en" },
                       { label: `${t("Arabic")}`, value: "ar" },
@@ -164,6 +149,7 @@ function App() {
             <Title sx={{ fontSize: 120 }} order={1}>
               {t("helloUser")}
             </Title>
+            <Projects />
           </AppShell>
         </div>
       </MantineProvider>
