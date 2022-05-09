@@ -10,20 +10,27 @@ function Projects() {
   const { t } = useTranslation("project");
 
   return (
-    <Container>
-      <Box></Box>
-      <Title>{t("MyProjects")}</Title>
-      <SimpleGrid
-        breakpoints={[
-          { maxWidth: 755, cols: 2, spacing: "sm" },
-          { maxWidth: 600, cols: 1, spacing: "sm" },
-        ]}
-      >
-        <ProjectBox />
-        <ProjectBox />
-        <ProjectBox />
-      </SimpleGrid>
-    </Container>
+    <Box
+      sx={{
+        height: "100vh",
+        width: "100%",
+        position: "relative",
+      }}
+    >
+      <Container>
+        <Title sx={{ marginBottom: 15 }}>{t("MyProjects")}</Title>
+        <SimpleGrid
+          breakpoints={[
+            { maxWidth: 755, cols: 2, spacing: "sm" },
+            { maxWidth: 600, cols: 1, spacing: "sm" },
+          ]}
+        >
+          <ProjectBox />
+          <ProjectBox />
+          <ProjectBox />
+        </SimpleGrid>
+      </Container>
+    </Box>
   );
 }
 

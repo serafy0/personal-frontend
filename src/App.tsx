@@ -11,6 +11,9 @@ import {
   Global,
   Title,
   SegmentedControl,
+  Box,
+  Container,
+  Center,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -19,6 +22,7 @@ import ThemeButton from "./components/ThemeButton";
 import { useEffect } from "react";
 
 import Projects from "./components/Project/Projects";
+import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
 
 function App() {
   // hook will return either 'dark' or 'light' on client
@@ -32,6 +36,7 @@ function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   const [rtl, setRtl] = useState(false);
+  const matches = useMediaQuery("(min-width: 755px)");
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng: string) => {
@@ -109,6 +114,8 @@ function App() {
                   theme.colorScheme === "dark"
                     ? theme.colors.dark[8]
                     : theme.colors.gray[0],
+                paddingLeft: 0,
+                paddingRight: 0,
               },
             })}
             navbarOffsetBreakpoint="sm"
@@ -145,10 +152,27 @@ function App() {
               </Header>
             }
           >
-            <Text> {t("welcome")}</Text>
-            <Title sx={{ fontSize: 120 }} order={1}>
-              {t("helloUser")}
-            </Title>
+            <Box
+              sx={{
+                height: "75vh",
+                width: "100%",
+                position: "relative",
+                marginTop: "10%",
+                padding: 10,
+                textAlign: "center",
+              }}
+            >
+              <Center>
+                <Title
+                  sx={{
+                    fontSize: matches ? 120 : 60,
+                  }}
+                  order={1}
+                >
+                  {t("helloUser")}
+                </Title>
+              </Center>
+            </Box>
             <Projects />
           </AppShell>
         </div>
