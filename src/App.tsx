@@ -14,6 +14,7 @@ import {
   Box,
   Container,
   Center,
+  BackgroundImage,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -116,6 +117,7 @@ function App() {
                     : theme.colors.gray[0],
                 paddingLeft: 0,
                 paddingRight: 0,
+                paddingTop: 0,
               },
             })}
             navbarOffsetBreakpoint="sm"
@@ -157,21 +159,21 @@ function App() {
                 height: "75vh",
                 width: "100%",
                 position: "relative",
-                marginTop: "10%",
                 padding: 10,
+                paddingTop: 200,
                 textAlign: "center",
               }}
             >
-              <Center>
-                <Title
-                  sx={{
-                    fontSize: matches ? 120 : 60,
-                  }}
-                  order={1}
-                >
-                  {t("helloUser")}
-                </Title>
-              </Center>
+              <Title
+                sx={{
+                  fontSize: matches ? 120 : 60,
+                  paddingBottom: 2,
+                }}
+                order={1}
+              >
+                {t("Me")}
+              </Title>
+              <Title>{t("AboutMe")}</Title>
             </Box>
             <Projects />
           </AppShell>

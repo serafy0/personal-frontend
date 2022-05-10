@@ -4,7 +4,6 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import ProjectLocales from "../components/Project/locales";
 import ProjectBoxLocales from "../components/ProjectBox/locales";
 
-
 i18n
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
@@ -30,6 +29,9 @@ i18n
         common: {
           welcome: "hello and welcome",
           helloUser: "Hello, Mohamed",
+          Me: "Mohamed El-Serafy",
+          AboutMe: "a software developer from Port-Said",
+
           English: "English",
           Arabic: "Arabic",
           French: "French",
@@ -43,6 +45,8 @@ i18n
         common: {
           welcome: "اهلا و سهلا",
           helloUser: "اهلا يا محمد",
+          Me: "محمد الصيرفي",
+          AboutMe: "مطور برجميات من بورسعيد",
           English: "الانجليزيه",
           Arabic: "العربيه",
           French: "الفرنسيه",
@@ -57,6 +61,8 @@ i18n
         common: {
           welcome: "salut",
           helloUser: "salut Moahmed",
+          Me: "Mohamed El-Serafy",
+          AboutMe: "un développeur de logiciels de Port-Saïd",
           English: "Anglais",
           Arabic: "arabe",
           French: "Français",
