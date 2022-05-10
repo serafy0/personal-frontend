@@ -223,7 +223,7 @@ function App() {
                   href="mailto:elserafy02@gmail.com?subject=hey mohamed&body=hey Mohamed,%0D%0A%0D%0A I wanted to.. "
                   variant="outline"
                   size="xl"
-                  title="Phone"
+                  title="Email"
                 >
                   <Mail />
                 </ActionIcon>
