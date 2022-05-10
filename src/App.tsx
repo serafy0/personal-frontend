@@ -79,7 +79,7 @@ function App() {
         theme={{
           colorScheme,
           dir: rtl ? "rtl" : "ltr",
-          primaryColor: colorScheme === "dark" ? "grape" : "cyan",
+          primaryColor: colorScheme === "dark" ? "green" : "blue",
 
           fontFamily: rtl
             ? "'Cairo', sans-serif"
@@ -97,18 +97,6 @@ function App() {
               { key: "mantine" }
         }
       >
-        <Global
-          styles={(theme) => ({
-            body: {
-              color:
-                theme.colorScheme === "dark"
-                  ? theme.colors.blue
-                  : theme.colors.orange,
-              fontSize: 15,
-            },
-          })}
-        />
-
         <div dir={rtl ? "rtl" : "ltr"}>
           <AppShell
             styles={(theme) => ({
@@ -179,28 +167,34 @@ function App() {
               <Group mt={15} position="center" spacing="xl">
                 <ActionIcon
                   component="a"
+                  color={colorScheme === "dark" ? "green" : "blue"}
                   target="_blank"
                   href="https://www.linkedin.com/in/mohamed-el-serafy-83205b160"
                   variant="outline"
                   size="xl"
+                  title="LinkedIn"
                 >
                   <BrandLinkedin />
                 </ActionIcon>
                 <ActionIcon
                   component="a"
+                  color={colorScheme === "dark" ? "green" : "blue"}
                   target="_blank"
                   href="https://github.com/serafy0"
                   variant="outline"
                   size="xl"
+                  title="Github"
                 >
                   <BrandGithub />
                 </ActionIcon>
                 <ActionIcon
                   component="a"
+                  color={colorScheme === "dark" ? "green" : "blue"}
                   target="_blank"
                   href="https://drive.google.com/file/d/1dr-TgjZx7-1pHH73ACBUhwgfpJGQH3nB/view?usp=sharing"
                   variant="outline"
                   size="xl"
+                  title="Résumé"
                 >
                   <File />
                 </ActionIcon>
