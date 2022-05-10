@@ -70,8 +70,8 @@ function App() {
             root: {
               color:
                 theme.colorScheme === "dark"
-                  ? theme.colors.lime
-                  : theme.colors.cyan,
+                  ? theme.colors.lime[6]
+                  : theme.colors.blue[9],
             },
           }),
           Title: (theme) => ({
@@ -120,11 +120,6 @@ function App() {
             navbarOffsetBreakpoint="sm"
             asideOffsetBreakpoint="sm"
             fixed
-            footer={
-              <Footer height={60} p="md">
-                <Text>Application footer</Text>
-              </Footer>
-            }
             header={
               <Header height={70} p="md">
                 <Group>
