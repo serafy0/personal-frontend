@@ -25,7 +25,14 @@ import { useEffect } from "react";
 
 import Projects from "./components/Project/Projects";
 import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
-import { BrandGithub, BrandLinkedin, Ce, File } from "tabler-icons-react";
+import {
+  BrandGithub,
+  BrandLinkedin,
+  Ce,
+  File,
+  Mail,
+  Phone,
+} from "tabler-icons-react";
 
 function App() {
   // hook will return either 'dark' or 'light' on client
@@ -197,6 +204,28 @@ function App() {
                   title="Résumé"
                 >
                   <File />
+                </ActionIcon>
+                <ActionIcon
+                  component="a"
+                  color={colorScheme === "dark" ? "green" : "blue"}
+                  target="_blank"
+                  href="tel:+202 555 0177"
+                  variant="outline"
+                  size="xl"
+                  title="Phone"
+                >
+                  <Phone />
+                </ActionIcon>
+                <ActionIcon
+                  component="a"
+                  color={colorScheme === "dark" ? "green" : "blue"}
+                  target="_blank"
+                  href="mailto:elserafy02@gmail.com?subject=hey mohamed&body=hey Mohamed,%0D%0A%0D%0A I wanted to.. "
+                  variant="outline"
+                  size="xl"
+                  title="Phone"
+                >
+                  <Mail />
                 </ActionIcon>
               </Group>
             </Box>
