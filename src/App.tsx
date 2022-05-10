@@ -71,7 +71,7 @@ function App() {
               color:
                 theme.colorScheme === "dark"
                   ? theme.colors.lime[6]
-                  : theme.colors.blue[9],
+                  : theme.colors.dark,
             },
           }),
           Title: (theme) => ({
@@ -79,7 +79,7 @@ function App() {
               color:
                 theme.colorScheme === "dark"
                   ? theme.colors.green[4]
-                  : theme.colors.blue,
+                  : theme.colors.black,
             },
           }),
         }}
@@ -169,7 +169,7 @@ function App() {
               <Group mt={15} position="center" spacing="xl">
                 <ActionIcon
                   component="a"
-                  color={colorScheme === "dark" ? "green" : "blue"}
+                  color={colorScheme === "dark" ? "green" : "dark"}
                   target="_blank"
                   href="https://www.linkedin.com/in/mohamed-el-serafy-83205b160"
                   variant="outline"
@@ -180,7 +180,7 @@ function App() {
                 </ActionIcon>
                 <ActionIcon
                   component="a"
-                  color={colorScheme === "dark" ? "green" : "blue"}
+                  color={colorScheme === "dark" ? "green" : "dark"}
                   target="_blank"
                   href="https://github.com/serafy0"
                   variant="outline"
@@ -191,7 +191,7 @@ function App() {
                 </ActionIcon>
                 <ActionIcon
                   component="a"
-                  color={colorScheme === "dark" ? "green" : "blue"}
+                  color={colorScheme === "dark" ? "green" : "dark"}
                   target="_blank"
                   href="https://drive.google.com/file/d/1dr-TgjZx7-1pHH73ACBUhwgfpJGQH3nB/view?usp=sharing"
                   variant="outline"
@@ -202,7 +202,7 @@ function App() {
                 </ActionIcon>
                 <ActionIcon
                   component="a"
-                  color={colorScheme === "dark" ? "green" : "blue"}
+                  color={colorScheme === "dark" ? "green" : "dark"}
                   target="_blank"
                   href="tel:+202 555 0177"
                   variant="outline"
@@ -213,7 +213,7 @@ function App() {
                 </ActionIcon>
                 <ActionIcon
                   component="a"
-                  color={colorScheme === "dark" ? "green" : "blue"}
+                  color={colorScheme === "dark" ? "green" : "dark"}
                   target="_blank"
                   href="mailto:elserafy02@gmail.com?subject=hey mohamed&body=hey Mohamed,%0D%0A%0D%0A I wanted to.. "
                   variant="outline"
