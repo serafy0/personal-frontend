@@ -15,6 +15,7 @@ import {
   Container,
   Center,
   BackgroundImage,
+  ActionIcon,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -24,6 +25,7 @@ import { useEffect } from "react";
 
 import Projects from "./components/Project/Projects";
 import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
+import { BrandGithub, BrandLinkedin, Ce, File } from "tabler-icons-react";
 
 function App() {
   // hook will return either 'dark' or 'light' on client
@@ -174,6 +176,35 @@ function App() {
                 {t("Me")}
               </Title>
               <Title order={2}>{t("AboutMe")}</Title>
+              <Group mt={15} position="center" spacing="xl">
+                <ActionIcon
+                  component="a"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/mohamed-el-serafy-83205b160"
+                  variant="outline"
+                  size="xl"
+                >
+                  <BrandLinkedin />
+                </ActionIcon>
+                <ActionIcon
+                  component="a"
+                  target="_blank"
+                  href="https://github.com/serafy0"
+                  variant="outline"
+                  size="xl"
+                >
+                  <BrandGithub />
+                </ActionIcon>
+                <ActionIcon
+                  component="a"
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1dr-TgjZx7-1pHH73ACBUhwgfpJGQH3nB/view?usp=sharing"
+                  variant="outline"
+                  size="xl"
+                >
+                  <File />
+                </ActionIcon>
+              </Group>
             </Box>
             <Projects />
           </AppShell>
