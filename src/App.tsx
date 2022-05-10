@@ -173,7 +173,7 @@ function App() {
               >
                 {t("Me")}
               </Title>
-              <Title>{t("AboutMe")}</Title>
+              <Title order={2}>{t("AboutMe")}</Title>
             </Box>
             <Projects />
           </AppShell>
