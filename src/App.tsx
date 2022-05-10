@@ -166,7 +166,7 @@ function App() {
             >
               <Title
                 sx={{
-                  fontSize: matches ? 120 : 60,
+                  fontSize: matches ? 85 : 60,
                   paddingBottom: 2,
                 }}
                 order={1}
