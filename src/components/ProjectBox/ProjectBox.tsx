@@ -6,6 +6,7 @@ import {
   Title,
   Container,
   SimpleGrid,
+  Center,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -26,7 +27,9 @@ function ProjectBox() {
       >
         {!matches && (
           <Container p={4}>
-            <Title>{t("virtualLibiray")}</Title>
+            <Center>
+              <Title order={2}>{t("virtualLibiray")}</Title>
+            </Center>
           </Container>
         )}
 
