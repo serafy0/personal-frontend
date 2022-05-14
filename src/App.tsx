@@ -112,13 +112,12 @@ function App() {
                   theme.colorScheme === "dark"
                     ? theme.colors.dark[8]
                     : theme.colors.gray[0],
+
                 paddingLeft: 0,
                 paddingRight: 0,
                 paddingTop: 0,
               },
             })}
-            navbarOffsetBreakpoint="sm"
-            asideOffsetBreakpoint="sm"
             fixed
             header={
               <Header height={70} p="md">
@@ -149,7 +148,7 @@ function App() {
             <Box
               sx={{
                 height: "75vh",
-                width: "100%",
+                width: "90%",
                 position: "relative",
                 padding: 10,
                 paddingTop: 200,
