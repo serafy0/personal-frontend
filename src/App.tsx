@@ -88,7 +88,6 @@ function App() {
           colorScheme,
           dir: rtl ? "rtl" : "ltr",
           primaryColor: colorScheme === "dark" ? "green" : "dark",
-
           fontFamily: rtl
             ? "'Cairo', sans-serif"
             : "'Goudy Bookletter 1911', serif",
@@ -121,8 +120,8 @@ function App() {
             })}
             fixed
             header={
-              <Header fixed height={70} p="md">
-                <Group>
+              <Header height={70} p="lg">
+                <Group spacing="lg">
                   <ThemeButton />
                   <Select
                     radius="xl"
@@ -159,9 +158,8 @@ function App() {
             <Box
               sx={{
                 height: "75vh",
-                width: "90%",
+                width: "95%",
                 position: "relative",
-
                 padding: 10,
                 paddingTop: 200,
                 textAlign: "center",
