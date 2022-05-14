@@ -16,6 +16,8 @@ import {
   Center,
   BackgroundImage,
   ActionIcon,
+  Select,
+  ThemeIcon,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -24,7 +26,6 @@ import ThemeButton from "./components/ThemeButton";
 import { useEffect } from "react";
 
 import Projects from "./components/Project/Projects";
-import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
 import {
   BrandGithub,
   BrandLinkedin,
@@ -86,7 +87,7 @@ function App() {
         theme={{
           colorScheme,
           dir: rtl ? "rtl" : "ltr",
-          primaryColor: colorScheme === "dark" ? "green" : "blue",
+          primaryColor: colorScheme === "dark" ? "green" : "dark",
 
           fontFamily: rtl
             ? "'Cairo', sans-serif"
@@ -120,19 +121,29 @@ function App() {
             })}
             fixed
             header={
-              <Header height={70} p="md">
+              <Header fixed height={70} p="md">
                 <Group>
                   <ThemeButton />
-
-                  <SegmentedControl
+                  <Select
+                    radius="xl"
+                    sx={{
+                      textAlign: "center",
+                      textAlignLast: "center",
+                    }}
+                    styles={{
+                      item: { textAlign: "center", textAlignLast: "center" },
+                    }}
+                    size="sm"
                     value={i18n.language}
                     data={[
-                      { label: `${t("English")}`, value: "en" },
-                      { label: `${t("Arabic")}`, value: "ar" },
-                      { label: `${t("French")}`, value: "fr" },
+                      { label: `${t("English")} 🇺🇸`, value: "en" },
+                      { label: `${t("Arabic")} 🇪🇬`, value: "ar" },
+                      { label: `${t("French")} 🇫🇷`, value: "fr" },
                     ]}
                     onChange={(lang) => {
-                      changeLanguage(lang);
+                      if (lang) {
+                        changeLanguage(lang);
+                      }
 
                       if (lang === "ar") {
                         setRtl(true);
@@ -150,6 +161,7 @@ function App() {
                 height: "75vh",
                 width: "90%",
                 position: "relative",
+
                 padding: 10,
                 paddingTop: 200,
                 textAlign: "center",
