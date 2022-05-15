@@ -137,7 +137,7 @@ function App() {
                     size="sm"
                     value={i18n.language}
                     data={[
-                      { label: `${t("English")} 🇺🇸`, value: "en" },
+                      { label: `${t("English")} 🇺🇸`, value: "en-US" },
                       { label: `${t("Arabic")} 🇪🇬`, value: "ar" },
                       { label: `${t("French")} 🇫🇷`, value: "fr" },
                     ]}
