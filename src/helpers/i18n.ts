@@ -30,7 +30,7 @@ i18n
           welcome: "hello and welcome",
           helloUser: "Hello, Mohamed",
           Me: "Mohamed El-Serafy",
-          AboutMe: "a software developer from Port-Said",
+          AboutMe: "software developer from Port-Said",
 
           English: "English",
           Arabic: "Arabic",
@@ -62,7 +62,7 @@ i18n
           welcome: "salut",
           helloUser: "salut Moahmed",
           Me: "Mohamed El-Serafy",
-          AboutMe: "un développeur de logiciels de Port-Saïd",
+          AboutMe: "développeur de logiciels de Port-Saïd",
           English: "Anglais",
           Arabic: "arabe",
           French: "Français",
