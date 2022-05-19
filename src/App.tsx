@@ -3,22 +3,12 @@ import {
   MantineProvider,
   ColorSchemeProvider,
   ColorScheme,
-  Text,
   AppShell,
   Header,
-  Footer,
   Group,
-  Global,
   Title,
-  SegmentedControl,
   Box,
-  Container,
-  Center,
-  BackgroundImage,
-  ActionIcon,
   Select,
-  ThemeIcon,
-  Button,
 } from "@mantine/core";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
@@ -26,11 +16,9 @@ import rtlPlugin from "stylis-plugin-rtl";
 import ThemeButton from "./components/ThemeButton";
 import { useEffect } from "react";
 
-import Projects from "./components/Project/Projects";
 import {
   BrandGithub,
   BrandLinkedin,
-  Ce,
   File,
   Mail,
   Phone,
