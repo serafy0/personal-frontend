@@ -159,8 +159,7 @@ function App() {
           >
             <Box
               sx={{
-                height: "75vh",
-                width: "95%",
+                height: "65vh",
                 position: "relative",
                 padding: 10,
                 paddingTop: 200,
@@ -209,7 +208,6 @@ function App() {
                 />
               </Group>
             </Box>
-            <Projects />
           </AppShell>
         </div>
       </MantineProvider>
