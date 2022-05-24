@@ -185,7 +185,7 @@ function App() {
 
                 <ContactIcon
                   title="Phone"
-                  link="tel:+202 555 0177"
+                  link={"tel:" + process.env.REACT_APP_PHONE_NUM}
                   Icon={<Phone />}
                 />
 
