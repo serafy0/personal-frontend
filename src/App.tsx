@@ -179,7 +179,7 @@ function App() {
 
                 <ContactIcon
                   title="Résumé"
-                  link="https://drive.google.com/file/d/1dr-TgjZx7-1pHH73ACBUhwgfpJGQH3nB/view?usp=sharing"
+                  link="https://drive.google.com/file/d/1nGZvYqQWXA8GC5bokEmQDR9MODW31l6L/view?usp=drive_link"
                   Icon={<File />}
                 />
 
